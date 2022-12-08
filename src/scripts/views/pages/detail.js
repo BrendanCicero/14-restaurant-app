@@ -13,7 +13,6 @@ const Detail = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const resta = await RestaurantSource.getRestaurantDetail(url.id);
     const restaItem = resta.restaurant;
-    console.log(restaItem)
     const restaDetail = document.querySelector("#resta__detail");
     restaDetail.innerHTML = createRestaDetailTemplate(restaItem);
   },
