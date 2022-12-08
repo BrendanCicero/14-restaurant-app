@@ -3,6 +3,7 @@ import "../styles/main.css";
 import "../styles/responsive.css";
 import "../styles/skip-link.css";
 import App from "./views/app";
+import swRegister from "./utils/sw-register";
 
 // const menu = document.querySelector("#menu");
 // const hero = document.querySelector(".hero");
@@ -21,6 +22,7 @@ window.addEventListener("hashchange", () => {
 
 window.addEventListener("load", () => {
   app.renderPage();
+  swRegister();
 });
 
 // menu.addEventListener("click", (event) => {
