@@ -4,14 +4,14 @@ import RestaurantSource from "../../data/restaurant-source";
 const Detail = {
   async render() {
     return `
-      <h2>Detail Page</h2>
+      <div id="resta__detail" class="resta__detail"></div>
     `;
   },
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    const cafe = await RestaurantSource.getRestaurantDetail(url.id);
-    console.log(cafe);
+    const resta = await RestaurantSource.getRestaurantDetail(url.id);
+    console.log(resta);
   },
 };
 
