@@ -24,7 +24,14 @@ main {
 
 .center {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wrapper {
+  border: 1px solid black;
+  margin: 2em;
+  padding: 20px;
 }
 
 /* Header */
@@ -192,6 +199,29 @@ main {
   font-size: 14px;
   line-height: 1.5em;
   overflow: hidden;
+}
+
+/* Resta Detail */
+.resta__detail {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px 16px;
+}
+
+.resta__poster {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.resta__info h4 {
+  margin: 10px 0;
+}
+
+.resta__overview h3 {
+  margin: 10px 0;
 }
 
 /* Footer */
