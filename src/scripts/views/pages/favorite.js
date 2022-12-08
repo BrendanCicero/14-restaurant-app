@@ -1,3 +1,5 @@
+import RestaurantSource from "../../data/restaurant-source";
+
 const Favorite = {
   async render() {
     return `
@@ -6,7 +8,8 @@ const Favorite = {
   },
 
   async afterRender() {
-    // Fungsi ini akan dipanggil setelah render()
+    const cafe = await RestaurantSource.getRestaurantList();
+    console.log(cafe);
   },
 };
 
