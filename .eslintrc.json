@@ -11,6 +11,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "quotes": "off",
     "import/no-extraneous-dependencies": 0,
     "no-console": 0,
     "no-underscore-dangle": 0,
