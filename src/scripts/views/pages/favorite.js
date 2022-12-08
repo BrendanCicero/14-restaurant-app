@@ -3,7 +3,9 @@ import RestaurantSource from "../../data/restaurant-source";
 const Favorite = {
   async render() {
     return `
-      <h2>Favorite page</h2>
+    <div class='explore'>
+      <h2 class='resta__header'>Favorite page</h2>
+    </div>
     `;
   },
 
