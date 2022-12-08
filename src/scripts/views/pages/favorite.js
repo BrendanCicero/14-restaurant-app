@@ -8,8 +8,8 @@ const Favorite = {
   },
 
   async afterRender() {
-    const cafe = await RestaurantSource.getRestaurantList();
-    console.log(cafe);
+    const restas = await RestaurantSource.getRestaurantList();
+    console.log(restas);
   },
 };
 
