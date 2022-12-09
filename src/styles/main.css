@@ -26,6 +26,8 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: large;
+  margin: 10px;
 }
 
 .wrapper {
@@ -152,6 +154,11 @@ main {
   border-radius: 20px;
 }
 
+.resta__list a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .resta__thumbnail {
   width: 100%;
   height: 240px;
@@ -188,11 +195,6 @@ main {
   opacity: 0.5;
 }
 
-.resta__title a {
-  text-decoration: none;
-  color: inherit;
-}
-
 .resta__description {
   margin-top: 16px;
   height: 4.5em;
@@ -222,6 +224,73 @@ main {
 
 .resta__overview h3 {
   margin: 10px 0;
+}
+
+.resta-menu {
+  border: 1px solid grey;
+  border-radius: 30px;
+}
+
+.resta-menu h3 {
+  background-color: #ffdca9;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+.resta-menu-grid {
+  display: grid;
+  grid-template-columns: 400px 400px;
+}
+
+.resta-menu-grid div {
+  margin: 2em;
+}
+
+.resta-food h4,
+.resta-drink h4 {
+  background-color: #f5d5ae;
+  padding: 15px;
+  border-radius: 30px;
+}
+
+.resta-food ul li,
+.resta-drink ul li {
+  background-color: #ffdca9;
+  padding: 15px 5px;
+  margin: 10px 0;
+  border-radius: 20px;
+  list-style-type: none;
+}
+
+.resta-review-item {
+  border: 1px solid gray;
+  margin: 10px 10px;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.review {
+  width: 800px;
+  background-color: #f5d5ae;
+  border: 1px solid gray;
+  padding-bottom: 20px;
+}
+
+.review-header {
+  margin: 10px 0;
+}
+
+.review-name {
+  font-weight: bold;
+}
+
+.review-date {
+  font-weight: lighter;
+  font-size: small;
+}
+
+.review-body {
+  font-size: rem;
 }
 
 /* Like */

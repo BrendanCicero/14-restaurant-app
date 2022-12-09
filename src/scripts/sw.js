@@ -4,14 +4,10 @@ import CacheHelper from "./utils/cache-helper";
 // Daftar asset yang akan dicaching
 const assetsToCache = [
   "./",
-  "./icons/maskable_icon.png",
-  "./icons/maskable_icon_x48.png",
-  "./icons/maskable_icon_x72.png",
-  "./icons/maskable_icon_x96.png",
-  "./icons/maskable_icon_x128.png",
-  "./icons/maskable_icon_x192.png",
-  "./icons/maskable_icon_x384.png",
-  "./icons/maskable_icon_x512.png",
+  "./icons/64.png",
+  "./icons/128.png",
+  "./icons/256.png",
+  "./icons/512.png",
   "./index.html",
   "./favicon.png",
   "./app.bundle.js",

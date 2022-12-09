@@ -1,17 +1,27 @@
-import RestaurantSource from "../../data/restaurant-source";
+import FavoriteRestaIdb from "../../data/favorite-resta-idb";
+import { createRestaItemTemplate } from "../templates/template-creator";
 
 const Favorite = {
   async render() {
     return `
-    <div class='explore'>
-      <h2 class='resta__header'>Favorite page</h2>
-    </div>
+    <section class='content'>
+        <div class='explore'>
+          <h2 class='resta__header'>Favorite Restaurant</h2>
+          <div class='resta' id='resta'>
+          
+          </div>
+        </div>
+      </section>
     `;
   },
 
   async afterRender() {
-    const restas = await RestaurantSource.getRestaurantList();
-    console.log(restas);
+    const restas = await FavoriteRestaIdb.getAllRestas();
+    const restaList = document.querySelector("#resta");
+
+    restas.forEach((resta) => {
+      restaList.innerHTML += createRestaItemTemplate(resta);
+    });
   },
 };
 
