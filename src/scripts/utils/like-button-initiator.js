@@ -5,26 +5,26 @@ import {
 } from "../views/templates/template-creator";
 
 const LikeButtonInitiator = {
-  async init({ likeButtonContainer, restaurant }) {
+  async init({ likeButtonContainer, resta }) {
     this._likeButtonContainer = likeButtonContainer;
-    this._restaurant = restaurant;
+    this._resta = resta;
 
     await this._renderButton();
   },
 
   async _renderButton() {
-    const { id } = this._restaurant;
+    const { id } = this._resta;
 
-    if (await this._isRestaurantExist(id)) {
+    if (await this._isRestaExist(id)) {
       this._renderLiked();
     } else {
       this._renderLike();
     }
   },
 
-  async _isRestaurantExist(id) {
-    const restaurant = await FavoriteRestaIdb.getRestaurant(id);
-    return !!restaurant;
+  async _isRestaExist(id) {
+    const resta = await FavoriteRestaIdb.getResta(id);
+    return !!resta;
   },
 
   _renderLike() {
@@ -32,7 +32,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector("#likeButton");
     likeButton.addEventListener("click", async () => {
-      await FavoriteRestaIdb.putRestaurant(this._restaurant);
+      await FavoriteRestaIdb.putResta(this._resta);
       this._renderButton();
     });
   },
@@ -42,7 +42,7 @@ const LikeButtonInitiator = {
 
     const likeButton = document.querySelector("#likeButton");
     likeButton.addEventListener("click", async () => {
-      await FavoriteRestaIdb.deleteRestaurant(this._restaurant.id);
+      await FavoriteRestaIdb.deleteResta(this._resta.id);
       this._renderButton();
     });
   },
