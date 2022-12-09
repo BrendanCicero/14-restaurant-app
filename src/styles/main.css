@@ -242,12 +242,13 @@ main {
   grid-template-columns: 400px 400px;
 }
 
-.resta-menu-grid div{
+.resta-menu-grid div {
   margin: 2em;
 }
 
-.resta-food h4, .resta-drink h4 {
-  background-color: #F5D5AE;
+.resta-food h4,
+.resta-drink h4 {
+  background-color: #f5d5ae;
   padding: 15px;
   border-radius: 30px;
 }
@@ -270,12 +271,12 @@ main {
 
 .review {
   width: 800px;
-  background-color: #F5D5AE;
+  background-color: #f5d5ae;
   border: 1px solid gray;
   padding-bottom: 20px;
 }
 
-.review-header{
+.review-header {
   margin: 10px 0;
 }
 
