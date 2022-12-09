@@ -1,11 +1,13 @@
 import UrlParser from "../../routes/url-parser";
 import RestaurantSource from "../../data/restaurant-source";
 import { createRestaDetailTemplate } from "../templates/template-creator";
+import LikeButtonInitiator from "../../utils/like-button-initiator";
 
 const Detail = {
   async render() {
     return `
       <div id="resta__detail" class="resta__detail"></div>
+      <div id='likeButtonContainer'></div>
     `;
   },
 
@@ -15,6 +17,19 @@ const Detail = {
     const restaItem = resta.restaurant;
     const restaDetail = document.querySelector("#resta__detail");
     restaDetail.innerHTML = createRestaDetailTemplate(restaItem);
+
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+      restaurant: {
+        id: restaItem.id,
+        name: restaItem.name,
+        description: restaItem.description,
+        city: restaItem.city,
+        rating: restaItem.rating,
+        address: restaItem.address,
+        pictureId: restaItem.pictureId,
+      },
+    });
   },
 };
 
