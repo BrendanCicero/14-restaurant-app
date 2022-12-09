@@ -43,9 +43,13 @@
       width: 100%;
       text-align: left;
     }
+        
+    .resta-menu-grid {
+      display: block;
+    }
   }
   
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 500px) {    
     .header__menu {
       display: none;
     }
