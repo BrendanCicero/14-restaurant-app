@@ -1,9 +1,6 @@
 import UrlParser from "../../routes/url-parser";
 import RestaurantSource from "../../data/restaurant-source";
-import {
-  createRestaDetailTemplate,
-  createLikeButtonTemplate,
-} from "../templates/template-creator";
+import { createRestaDetailTemplate } from "../templates/template-creator";
 import LikeButtonInitiator from "../../utils/like-button-initiator";
 
 const Detail = {
