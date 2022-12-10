@@ -30,6 +30,7 @@ const Detail = {
         pictureId: restaItem.pictureId,
       },
     });
+    console.log(restaItem.id);
   },
 };
 
