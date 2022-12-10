@@ -1,53 +1,78 @@
+/* eslint-disable no-undef */
 import LikeButtonInitiator from "../src/scripts/utils/like-button-initiator";
-import FavoriteRestaIdb from '../src/scripts/data/favorite-resta-idb'
+import FavoriteRestaIdb from "../src/scripts/data/favorite-resta-idb";
 
 describe("Liking A Resta", () => {
   const addLikeButtonContainer = () => {
     document.body.innerHTML = '<div id="likeButtonContainer"></div>';
   };
-  
+
   beforeEach(() => {
     addLikeButtonContainer();
   });
-  
+
   it("should show the like button when the resta has not been liked before", async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector("#likeButtonContainer"),
       resta: {
-        id: 'rqdv5juczeskfw1e867',
+        id: 1,
       },
     });
 
     expect(
-      document.querySelector('[aria-label="like this resto"]'))
-        .toBeTruthy();
+      document.querySelector('[aria-label="like this resto"]')
+    ).toBeTruthy();
   });
-  
-  it('should not show the unlike button when the resta has not been liked before', async () => {
+
+  it("should not show the unlike button when the resta has not been liked before", async () => {
     await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      likeButtonContainer: document.querySelector("#likeButtonContainer"),
       resta: {
-        id: 'rqdv5juczeskfw1e867',
+        id: 1,
       },
     });
-    expect(document.querySelector('[aria-label="unlike this resto"]'))
-        .toBeFalsy();
+    expect(
+      document.querySelector('[aria-label="unlike this resto"]')
+    ).toBeFalsy();
   });
-  
-  it('should be able to like the resta', async () => {
+
+  it("should be able to like the resta", async () => {
     await LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('#likeButtonContainer'),
+      likeButtonContainer: document.querySelector("#likeButtonContainer"),
       resta: {
-        id: 'rqdv5juczeskfw1e867',
+        id: 1,
       },
     });
-    
-    document.querySelector('#likeButton').dispatchEvent(new Event('click'));
-    const resta = await FavoriteRestaIdb.getResta('rqdv5juczeskfw1e867');
-    expect(resta).toEqual({ id: 'rqdv5juczeskfw1e867' });
-    
-    FavoriteRestaIdb.deleteResta('rqdv5juczeskfw1e867')
+
+    document.querySelector("#likeButton").dispatchEvent(new Event("click"));
+    const resta = await FavoriteRestaIdb.getResta(1);
+
+    expect(resta).toEqual({ id: 1 });
+    FavoriteRestaIdb.deleteResta(1);
   });
-  
-  await FavoriteRestaIdb.putResta({id: 'rqdv5juczeskfw1e867'})
+
+  it("should not add a resta again when its already liked", async () => {
+    await LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+      resta: {
+        id: 1,
+      },
+    });
+
+    await FavoriteRestaIdb.putResta({ id: 1 });
+
+    document.querySelector("#likeButton").dispatchEvent(new Event("click"));
+
+    expect(await FavoriteRestaIdb.getAllRestas()).toEqual([{ id: 1 }]);
+    FavoriteRestaIdb.deleteResta(1);
+  });
+
+  xit("should not add a resta when it has no id", async () => {
+    await LikeButtonInitiator.init({
+      likeButtonContainer: document.querySelector("#likeButtonContainer"),
+      resta: {},
+    });
+    document.querySelector("#likeButton").dispatchEvent(new Event("click"));
+    expect(await FavoriteRestaIdb.getAllRestas()).toEqual([]);
+  });
 });
