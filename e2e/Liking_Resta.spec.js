@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 Feature("Liking Resta");
+const assert = require("assert");
 
 Before(({ I }) => {
   I.amOnPage("/#/favorite");
@@ -10,17 +11,23 @@ Scenario("showing empty liked restas", ({ I }) => {
   I.see("Silahkan tambah resta favoritemu dulu di halaman utama", ".resta");
 });
 
-Scenario("liking one resta", ({ I }) => {
+Scenario("liking one resta", async ({ I }) => {
   I.see("Silahkan tambah resta favoritemu dulu di halaman utama", ".resta");
 
   I.amOnPage("/");
 
   I.seeElement(".resta__list a");
-  I.click(locate(".resta__list a").first());
+
+  const firstResta = locate(".resta__list a").first();
+  const firstRestaTitle = await I.grabTextFrom(firstResta);
+
+  I.click(firstResta);
 
   I.seeElement("#likeButton");
   I.click("#likeButton");
 
   I.amOnPage("/#/favorite");
   I.seeElement(".resta__list");
+  const likedRestaTitle = await I.grabTextFrom(".resta__title");
+  assert.strictEqual(firstRestaTitle, likedRestaTitle);
 });
