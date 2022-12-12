@@ -55,6 +55,22 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .hero {
+    background: url("../public/images/heros/hero-image_2-small.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+  .hero {
+    background: url("../public/images/heros/hero-image_2-large.jpg");
+    background-position: center;
+    background-size: auto;
+  }
+}
+
 @media screen and (min-width: 650px) {
   .headline__content {
     margin: 0 auto;
