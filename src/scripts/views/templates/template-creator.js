@@ -4,7 +4,7 @@ const createRestaDetailTemplate = (resta) => `
   <div class='wrapper'>
     <div class='center'>
       <h2 class="resta__header">${resta.name}</h2>
-      <img class="resta__poster" src="${CONFIG.BASE_IMAGE_URL + resta.pictureId}" alt="${resta.name}" />
+      <img class="resta__poster lazyload" data-src="${CONFIG.BASE_IMAGE_URL + resta.pictureId}" alt="${resta.name}" />
       <h3>Information</h3>
     </div>
     <div class="resta__info">
@@ -65,7 +65,7 @@ const createRestaDetailTemplate = (resta) => `
 const createRestaItemTemplate = (resta) => `
   <article tabindex='0' class='resta__list'>
         <a href="/#/detail/${resta.id}">
-          <img tabindex='0' class='resta__thumbnail' src='${CONFIG.BASE_IMAGE_URL + resta.pictureId}' alt='${resta.name}'/>
+          <img tabindex='0' class='resta__thumbnail lazyload' data-src='${CONFIG.BASE_IMAGE_URL + resta.pictureId}' alt='${resta.name}'/>
           <p tabindex='0' class='resta__city'>${resta.city}</p>
           <div class='resta__content'>
               <p tabindex='0' class='resta__rating'>Rating : ${resta.rating}</p>
@@ -76,13 +76,13 @@ const createRestaItemTemplate = (resta) => `
     </article>
 `;
 
-const createLikeButtonTemplate = () => `
+const createLikeRestaButtonTemplate = () => `
   <button aria-label="like this resto" id="likeButton" class="like">
     <i class="far fa-heart" aria-hidden="true"></i>
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
+const createUnlikeRestaButtonTemplate = () => `
   <button aria-label="unlike this resto" id="likeButton" class="like">
     <i class="fas fa-heart" aria-hidden="true"></i>
   </button>
@@ -91,6 +91,6 @@ const createLikedButtonTemplate = () => `
 export {
   createRestaItemTemplate,
   createRestaDetailTemplate,
-  createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createLikeRestaButtonTemplate,
+  createUnlikeRestaButtonTemplate,
 };

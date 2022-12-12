@@ -17,8 +17,13 @@ const Favorite = {
 
   async afterRender() {
     const restas = await FavoriteRestaIdb.getAllRestas();
-    const restaList = document.querySelector("#resta");
+    const restaList = document.querySelector(".resta");
 
+    if (restas.length === 0) {
+      restaList.innerHTML = `
+        Silahkan tambah resta favoritemu dulu di halaman utama
+      `;
+    }
     restas.forEach((resta) => {
       restaList.innerHTML += createRestaItemTemplate(resta);
     });
